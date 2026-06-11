@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FiMenu, FiX } from "react-icons/fi";
 
 const navLinks = [
-  { name: 'Home', href: '#' },
-  { name: 'Services', href: '#services' },
-  { name: 'About Us', href: '#about' },
-  { name: 'Notice', href: '#notice' },
-  { name: 'Contact', href: '#contact' },
+  { name: "Home", href: "#" },
+  { name: "Services", href: "#services" },
+  { name: "About Us", href: "#about" },
+  { name: "Notice", href: "#notice" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -16,28 +16,35 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = mobileMenuOpen ? 'hidden' : 'unset';
-    return () => (document.body.style.overflow = 'unset');
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "unset";
+    return () => {
+      document.body.style.overflow = "unset";
+    };
   }, [mobileMenuOpen]);
 
   return (
     <>
       {/* HEADER */}
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-nav text-main ${isScrolled ? 'shadow-sm py-3' : 'py-5'
-          }`}
+        className="fixed top-0 left-0 right-0 z-40 transition-all duration-300"
+        style={{
+          background: "var(--nav-bg)",
+          color: "var(--text-main)",
+          padding: isScrolled ? "12px 0" : "20px 0",
+          boxShadow: isScrolled ? "0 2px 10px rgba(0,0,0,0.05)" : "none",
+        }}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center relative">
 
           {/* LEFT */}
           <div className="flex items-center gap-3 z-20">
             <button
-              className="lg:hidden p-2 hover:bg-black/5 rounded-full"
+              className="lg:hidden p-2 rounded-full hover:bg-black/5 transition"
               onClick={() => setMobileMenuOpen(true)}
             >
               <FiMenu size={24} />
@@ -45,10 +52,12 @@ export default function Navbar() {
 
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center shadow-md">
-                <span className="text-brand font-bold">S</span>
+                <span style={{ color: "var(--primary)" }} className="font-bold">
+                  S
+                </span>
               </div>
 
-              <span className="font-bold text-lg sm:text-xl text-main">
+              <span className="font-bold text-lg sm:text-xl">
                 Shomobai
               </span>
             </div>
@@ -60,14 +69,18 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="group text-sm font-medium text-main hover-brand transition relative whitespace-nowrap"
+                className="relative text-sm font-medium transition"
+                style={{ color: "var(--text-main)" }}
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--primary)] transition-all group-hover:w-full"></span>
+
+                <span
+                  className="absolute left-0 -bottom-1 h-[2px] w-0 transition-all group-hover:w-full"
+                  style={{ background: "var(--primary)" }}
+                />
               </a>
             ))}
           </nav>
-
         </div>
       </header>
 
@@ -84,26 +97,30 @@ export default function Navbar() {
             />
 
             <motion.div
-              initial={{ x: '-100%' }}
+              initial={{ x: "-100%" }}
               animate={{ x: 0 }}
-              exit={{ x: '-100%' }}
-              transition={{ type: 'spring', bounce: 0 }}
-              className="fixed top-0 left-0 bottom-0 w-72 sm:w-80 bg-nav z-50 shadow-2xl flex flex-col"
+              exit={{ x: "-100%" }}
+              transition={{ type: "spring", bounce: 0 }}
+              className="fixed top-0 left-0 bottom-0 w-72 sm:w-80 z-50 shadow-2xl flex flex-col"
+              style={{
+                background: "var(--nav-bg)",
+                color: "var(--text-main)",
+              }}
             >
               {/* HEADER */}
-              <div className="p-6 flex justify-between items-center border-b">
+              <div className="p-6 flex justify-between items-center border-b border-black/10">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center shadow-md">
-                    <span className="text-brand font-bold">S</span>
+                    <span style={{ color: "var(--primary)" }} className="font-bold">
+                      S
+                    </span>
                   </div>
-                  <span className="font-bold text-xl text-main">
-                    Shomobai
-                  </span>
+                  <span className="font-bold text-xl">Shomobai</span>
                 </div>
 
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-2 hover-bg-brand rounded-full"
+                  className="p-2 rounded-full hover:bg-black/5 transition"
                 >
                   <FiX size={22} />
                 </button>
@@ -118,7 +135,8 @@ export default function Navbar() {
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
                       whileHover={{ x: 8 }}
-                      className="w-full text-xl font-medium text-main hover-brand transition p-3 rounded-xl hover-bg-brand"
+                      className="w-full text-xl font-medium p-3 rounded-xl transition"
+                      style={{ color: "var(--text-main)" }}
                     >
                       {link.name}
                     </motion.a>
