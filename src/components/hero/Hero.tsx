@@ -9,7 +9,7 @@ export default function Hero() {
     });
 
     return (
-        <section className="min-h-screen flex items-center relative overflow-hidden bg-white px-6 md:px-12 py-20 lg:py-0">
+        <section className="flex items-center px-6 md:px-12 pt-28 pb-12 md:pt-32 md:pb-16 relative overflow-hidden bg-white">
 
             {/* BACKGROUND GLOW */}
             <div className="absolute inset-0 opacity-30">
