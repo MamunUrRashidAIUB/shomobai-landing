@@ -30,8 +30,8 @@ export default function Navbar() {
     <>
       {/* HEADER */}
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-[rgb(20,35,152)] text-white ${isScrolled
-          ? 'shadow-xl py-3'
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-nav-bg text-text-main ${isScrolled
+          ? 'shadow-sm py-3'
           : 'py-5'
           }`}
       >
@@ -40,7 +40,7 @@ export default function Navbar() {
           {/* LEFT */}
           <div className="flex items-center gap-3 z-20">
             <button
-              className="lg:hidden p-2 hover:bg-white/20 rounded-full text-white"
+              className="lg:hidden p-2 hover:bg-black/5 rounded-full text-text-main"
               onClick={() => setMobileMenuOpen(true)}
             >
               <FiMenu size={24} />
@@ -51,7 +51,7 @@ export default function Navbar() {
                 <span className="text-[rgb(20,35,152)] font-bold">S</span>
               </div>
 
-              <span className="font-bold text-lg sm:text-xl text-white">
+              <span className="font-bold text-lg sm:text-xl text-text-main">
                 Shomobai
               </span>
             </div>
@@ -63,10 +63,10 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="group text-sm font-medium text-white hover:text-white/80 transition relative whitespace-nowrap"
+                className="group text-sm font-medium text-text-main hover:text-text-main/80 transition relative whitespace-nowrap"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-text-main transition-all group-hover:w-full"></span>
               </a>
             ))}
           </nav>
@@ -91,20 +91,20 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
               transition={{ type: 'spring', bounce: 0 }}
-              className="fixed top-0 left-0 bottom-0 w-72 sm:w-80 bg-white z-50 shadow-2xl flex flex-col"
+              className="fixed top-0 left-0 bottom-0 w-72 sm:w-80 bg-nav-bg z-50 shadow-2xl flex flex-col"
             >
               {/* HEADER */}
               <div className="p-6 flex justify-between items-center border-b">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-[rgb(20,35,152)] flex items-center justify-center shadow-md">
-                    <span className="text-white font-bold">S</span>
+                  <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center shadow-md">
+                    <span className="text-text-main font-bold">S</span>
                   </div>
-                  <span className="font-bold text-xl text-[rgb(20,35,152)]">Shomobai</span>
+                  <span className="font-bold text-xl text-text-main">Shomobai</span>
                 </div>
 
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-2 hover:bg-gray-100 rounded-full"
+                  className="p-2 hover:bg-black/5 rounded-full text-text-main"
                 >
                   <FiX size={22} />
                 </button>
@@ -119,7 +119,7 @@ export default function Navbar() {
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
                       whileHover={{ x: 8 }}
-                      className="w-full text-xl font-medium text-gray-800 hover:text-[rgb(20,35,152)] transition p-3 rounded-xl hover:bg-[rgb(20,35,152)]/10"
+                      className="w-full text-xl font-medium text-text-main hover:text-[rgb(20,35,152)] transition p-3 rounded-xl hover:bg-[rgb(20,35,152)]/10"
                     >
                       {link.name}
                     </motion.a>
