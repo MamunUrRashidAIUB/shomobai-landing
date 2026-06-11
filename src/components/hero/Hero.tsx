@@ -16,13 +16,13 @@ export default function Hero() {
                 <motion.div
                     animate={{ x: [0, 80, 0], y: [0, -40, 0] }}
                     transition={{ repeat: Infinity, duration: 12 }}
-                    className="absolute top-20 left-10 w-72 h-72 bg-teal-200 rounded-full blur-3xl"
+                    className="absolute top-20 left-10 w-72 h-72 bg-[var(--primary)]/20 rounded-full blur-3xl"
                 />
 
                 <motion.div
                     animate={{ x: [0, -60, 0], y: [0, 60, 0] }}
                     transition={{ repeat: Infinity, duration: 15 }}
-                    className="absolute bottom-10 right-10 w-80 h-80 bg-blue-200 rounded-full blur-3xl"
+                    className="absolute bottom-10 right-10 w-80 h-80 bg-[var(--primary)]/10 rounded-full blur-3xl"
                 />
             </div>
 
@@ -36,7 +36,7 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-main leading-tight"
+                        className="text-3xl sm:text-4xl md:text-5xl font-bold text-main leading-tight"
                     >
                         Your Trusted Financial Partner
                     </motion.h1>
@@ -45,7 +45,7 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="mt-4 text-base sm:text-lg text-text-main/80 max-w-2xl"
+                        className="mt-4 text-base sm:text-lg text-main/80 max-w-2xl"
                     >
                         Empowering communities through innovative financial services, sustainable development, and cooperative excellence. Join JBSS for a brighter financial future.
                     </motion.p>
@@ -57,7 +57,7 @@ export default function Hero() {
                         transition={{ delay: 0.3 }}
                         className="mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
                     >
-                        <button className="w-full sm:w-auto px-8 py-3.5 bg-nav-bg text-text-main font-semibold rounded-xl hover:opacity-80 transition shadow-md">
+                        <button className="w-full sm:w-auto px-8 py-3.5 bg-nav text-main font-semibold rounded-xl hover:opacity-80 transition shadow-md">
                             Get Started
                         </button>
 
@@ -81,10 +81,10 @@ export default function Hero() {
                                 transition={{ delay: 0.4 + i * 0.1 }}
                                 className="text-center"
                             >
-                                <div className="text-2xl font-bold text-text-main">
+                                <div className="text-2xl font-bold text-main">
                                     {stat.value}
                                 </div>
-                                <div className="text-sm text-text-main/70 mt-1">
+                                <div className="text-sm text-main/70 mt-1">
                                     {stat.label}
                                 </div>
                             </motion.div>
@@ -93,7 +93,7 @@ export default function Hero() {
                     </div>
                 </div>
 
-                {/* RIGHT LOTTIE (RESPONSIVE FIXED) */}
+                {/* RIGHT LOTTIE */}
                 <div className="flex items-center justify-center w-full">
                     <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
                         {View}

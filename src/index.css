@@ -1,26 +1,43 @@
 @import "tailwindcss";
 
-@theme {
-  --color-brand: rgb(20, 35, 152);
-  --color-brand-light: rgb(46, 64, 196);
-  --color-brand-50: rgba(20, 35, 152, 0.05);
-  --color-nav-bg: #dff7e5;
-  --color-text-main: #263238;
-}
-
+/* =========================
+   THEME TOKENS
+========================= */
 :root {
-  --primary: rgb(20, 35, 152);
-  --primary-light: rgb(46, 64, 196);
   --nav-bg: #dff7e5;
-
-  --bg: #ffffff;
   --text-main: #263238;
-  --muted: #6b7280;
-  --accent: #f59e0b;
+  --primary: rgb(22, 194, 122);
 }
 
+/* =========================
+   GLOBAL BASE
+========================= */
 body {
   margin: 0;
-  background: var(--bg);
+  background: #ffffff;
   color: var(--text-main);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+}
+
+/* =========================
+   UTILITY CLASSES (IMPORTANT)
+========================= */
+.bg-nav {
+  background: var(--nav-bg);
+}
+
+.text-main {
+  color: var(--text-main);
+}
+
+.text-brand {
+  color: var(--primary);
+}
+
+.hover-brand:hover {
+  color: var(--primary);
+}
+
+.hover-bg-brand:hover {
+  background: rgba(20, 35, 152, 0.1);
 }
