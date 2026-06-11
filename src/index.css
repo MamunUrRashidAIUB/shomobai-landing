@@ -1,0 +1,15 @@
+:root {
+  --primary: #0f766e;
+  --primary-light: #14b8a6;
+
+  --bg: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --accent: #f59e0b;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
